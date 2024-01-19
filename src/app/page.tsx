@@ -21,7 +21,10 @@ export default async function Home() {
     <div>
       <div className="flex m-2 justify-between items-center">
         <h1 className="text-xl font-bold">Snippets</h1>
-        <Link className="border rounded p-2" href={`/snippets/new`}>
+        <Link
+          className="border rounded p-2 border-gray-200 hover:bg-gray-100"
+          href={`/snippets/new`}
+        >
           New
         </Link>
       </div>
