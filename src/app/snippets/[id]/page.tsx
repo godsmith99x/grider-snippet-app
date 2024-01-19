@@ -27,9 +27,12 @@ export default async function ShowSnippetPage(props: ShowSnippetPageProps) {
       <div className="flex m-4 justify-between items-center">
         <h1 className="text-xl font-bold">{snippet.title}</h1>
         <div className="flex gap-2">
-          <button className="border rounded p-2 border-gray-200 hover:bg-gray-100">
+          <Link
+            href={`/snippets/${snippet.id}/edit`}
+            className="border rounded p-2 border-gray-200 hover:bg-gray-100"
+          >
             Edit
-          </button>
+          </Link>
           <button className="border rounded p-2 border-gray-200 hover:bg-gray-100">
             Delete
           </button>
