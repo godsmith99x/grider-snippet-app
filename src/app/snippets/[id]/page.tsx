@@ -1,5 +1,11 @@
 import { db } from "@/db";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import {
+  TiHomeOutline,
+  TiArrowLeftOutline,
+  TiArrowRightOutline,
+} from "react-icons/ti";
 
 interface ShowSnippetPageProps {
   params: {
@@ -20,7 +26,7 @@ export default async function ShowSnippetPage(props: ShowSnippetPageProps) {
     <div>
       <div className="flex m-4 justify-between items-center">
         <h1 className="text-xl font-bold">{snippet.title}</h1>
-        <div className="space-x-2">
+        <div className="flex gap-2">
           <button className="border rounded p-2 border-gray-200 hover:bg-gray-100">
             Edit
           </button>
@@ -29,9 +35,29 @@ export default async function ShowSnippetPage(props: ShowSnippetPageProps) {
           </button>
         </div>
       </div>
-      <pre>
+      <pre className="p-3 border rounded bg-gray-200">
         <code>{snippet.code}</code>
       </pre>
+      <div className="text-xl flex m-2 gap-1 justify-end">
+        <Link
+          href={`/`}
+          className="border rounded p-2 border-gray-200 hover:bg-gray-100"
+        >
+          <TiHomeOutline />
+        </Link>
+        <Link
+          href={`/snippets/${snippet.id - 1}`}
+          className="border rounded p-2 border-gray-200 hover:bg-gray-100"
+        >
+          <TiArrowLeftOutline />
+        </Link>
+        <Link
+          href={`/snippets/${snippet.id + 1}`}
+          className="border rounded p-2 border-gray-200 hover:bg-gray-100"
+        >
+          <TiArrowRightOutline />
+        </Link>
+      </div>
     </div>
   );
 }
