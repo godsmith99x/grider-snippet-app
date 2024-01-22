@@ -1,5 +1,7 @@
 import { db } from "@/db";
 import { redirect } from "next/navigation";
+import Link from "next/link";
+import { TiHomeOutline } from "react-icons/ti";
 
 export default function SnippetCreatePage() {
   async function createSnippet(formData: FormData) {
@@ -21,7 +23,15 @@ export default function SnippetCreatePage() {
 
   return (
     <form action={createSnippet}>
-      <h3 className="text-xl font-bold m-3">Create a Snippet</h3>
+      <div className="text-xl m-3 flex justify-between">
+        <h3 className="font-bold">Create a Snippet</h3>
+        <Link
+          href={`/`}
+          className="border rounded p-2 border-gray-200 hover:bg-gray-100"
+        >
+          <TiHomeOutline />
+        </Link>
+      </div>
       <div className="flex flex-col gap-4">
         <div className="flex gap-4">
           <label htmlFor="title" className="w-12">
