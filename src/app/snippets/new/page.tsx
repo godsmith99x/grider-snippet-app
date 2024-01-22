@@ -53,7 +53,10 @@ export default function SnippetCreatePage() {
             id="code"
           />
         </div>
-        <button type="submit" className="rounded p-2 bg-blue-200">
+        <button
+          type="submit"
+          className="border rounded p-2 border-gray-200 hover:bg-gray-200"
+        >
           Save
         </button>
       </div>
